@@ -1,5 +1,4 @@
 const requiresLogin = (req, res, next) => {
-    console.log('reached');
     if(!req.session.account) {
         return res.redirect('/')
     }
@@ -30,5 +29,5 @@ module.exports.requiresLogout = requiresLogout;
 if(process.env.NODE_ENV === 'production') {
     module.exports.requiresSecure = requiresSecure;
 } else {
-    module.exports.bypassSecure = bypassSecure;
+    module.exports.requiresSecure = bypassSecure;
 }
